@@ -13,7 +13,9 @@ public class Looping {
 		//guessNumber();
 		//subtractionProblems();
 		//multiplicationTable();
-		greatestCommonDivisor();
+		//greatestCommonDivisor();
+		//predictingFuture();
+		isPrime();
 		//input.close();
 	}
 	
@@ -185,10 +187,43 @@ public class Looping {
 				if ((a % x == 0) && (b % x ==0))
 					gcd = x;
 			}
-		System.out.println(gcd);
-		
+		System.out.println(gcd);	
 	}
 	
+	public static void predictingFuture() {
+		System.out.print("How much is tuition: ");
+		double tuition = input.nextDouble();
+		System.out.print("How much is interest: ");
+		double interest = input.nextDouble() /100;
+		double interestedtuition = tuition*2;
+		int counter = 0;
+		interest += 1;
+		System.out.println(interest);
+		
+		do {
+			tuition = interest *tuition;
+			System.out.println(tuition);
+			counter++;
+		}while (tuition <= interestedtuition);
+		
+		System.out.println(counter+" years");
+	}
 	
+	public static void isPrime() {
+		System.out.print("Please enter an integer: ");
+        int y = input.nextInt();
+        Label: 
+        for (int check = 2; check <y; check++) {
+        	switch(check % y) {
+        	case 0: 
+        		System.out.println("This is a composite number");
+        		check = y;
+        		break Label;
+        	default:
+        		System.out.println("This is a prime number");
+        		break Label;
+        	}
+        }
+      }
 	
 }
